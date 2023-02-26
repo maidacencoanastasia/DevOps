@@ -6,8 +6,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./nginx.conf:/etc/nginx.conf
-      - ./html:/usr/share/nginx/html
+      - ./nginx/conf:/etc/nginx/conf
+      - ./html:/usr/share/html
     depends_on:
       - mysql
     networks:
