@@ -1,0 +1,22 @@
+version: '3'
+networks:
+  jenkins_network:
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "8585:80"
+    networks:
+      - jenkins_network
+      - default
+	  volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+services:
+  jenkins:
+    image: jenkins
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins_network
+
+    
